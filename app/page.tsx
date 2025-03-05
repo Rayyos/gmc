@@ -1,8 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -10,7 +7,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { CheckCircle, Phone, Mail, Globe, Facebook, Twitter, LinkedinIcon as LinkedIn, MessageCircle, Contact, Instagram, Linkedin } from "lucide-react"
+import { CheckCircle, Phone, Mail, Facebook, MessageCircle,  Instagram, Linkedin } from "lucide-react"
 import ContactForm from "@/components/common/contact-form"
 
 export default function Home() {
@@ -75,7 +72,7 @@ export default function Home() {
           <section className="mb-12">
             <p className="text-lg text-center mb-6 text-gray-700">
               At Gulf Manpower Consultancy, we specialize in providing skilled and unskilled workforce solutions to
-              businesses across the Gulf region. Whether you're looking for highly qualified professionals or dedicated
+              businesses across the Gulf region. Whether you are looking for highly qualified professionals or dedicated
               laborers, we ensure the right talent reaches the right opportunity.
             </p>
           </section>

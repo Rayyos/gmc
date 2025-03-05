@@ -6,13 +6,13 @@ import { Textarea } from '../ui/textarea'
 import { Button } from '../ui/button'
 
 const ContactForm = () => {
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: '',
     })
     const [loading, setLoading] = useState(false)
-    const [error, setError] = useState('')
     const [success, setSuccess] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,17 +30,22 @@ const ContactForm = () => {
                 },
                 body: JSON.stringify(formData),
             })
-            if(res.status === 200) {
+            if (res.status === 200) {
                 setSuccess("Message sent successfully!")
                 setFormData({
                     name: '',
                     email: '',
                     message: '',
                 })
-            }         
-        } catch (error: any) {
-            const errorMessage = error.response?.data?.message || "Failed to send message. Please try again.";
-            if (success !== "Message sent successfully!") setSuccess(errorMessage);
+            }
+        } catch (error: unknown) {
+            let errorMessage = "Failed to send message. Please try again.";
+
+            if (error instanceof Error) {
+                errorMessage = error.message;
+            }
+
+            setSuccess(errorMessage);
         }
         setLoading(false)
     }
